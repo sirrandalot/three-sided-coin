@@ -3718,9 +3718,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Enter the settings you want and then click "Run" to run the simulation,
     it will give you the results at the end. The coins never interfere with each
-    other, the option to change hte number of throws and coins per throw is simply
-    to allow more flexibility so htat more powerful machines can run simulations
-    faster and less powerful ones don't crash.
+    other, the option to change the number of throws and coins per throw is simply
+    to allow for larger numbers of total coin tosses while catering to machines that
+    have different capabilities.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
