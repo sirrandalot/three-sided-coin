@@ -1960,6 +1960,7 @@ GameObject:
   - component: {fileID: 365456305}
   - component: {fileID: 365456307}
   - component: {fileID: 365456306}
+  - component: {fileID: 365456308}
   m_Layer: 5
   m_Name: MainPanel
   m_TagString: Untagged
@@ -2040,6 +2041,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 365456304}
   m_CullTransparentMesh: 1
+--- !u!114 &365456308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365456304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 805246f40b1be6f4094bc623c26040ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &371378328
 GameObject:
   m_ObjectHideFlags: 0
@@ -2098,7 +2111,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Angle
+  m_text: Angle (negative for random angle)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -18,7 +18,7 @@ public static class SaveLoadManager
 
     public static float LoadMass()
     {
-        return PlayerPrefs.GetFloat(_keyMass, 0f);
+        return PlayerPrefs.GetFloat(_keyMass, 1f);
     }
 
     public static void SaveILV(float ilv)
@@ -28,7 +28,7 @@ public static class SaveLoadManager
 
     public static float LoadILV()
     {
-        return PlayerPrefs.GetFloat(_keyIlv, 0f);
+        return PlayerPrefs.GetFloat(_keyIlv, 1f);
     }
 
     public static void SaveIAV(float iav)
@@ -38,7 +38,7 @@ public static class SaveLoadManager
 
     public static float LoadIAV()
     {
-        return PlayerPrefs.GetFloat(_keyIav, 0f);
+        return PlayerPrefs.GetFloat(_keyIav, 1f);
     }
 
     public static void SaveFriction(float friction)
@@ -48,7 +48,7 @@ public static class SaveLoadManager
 
     public static float LoadFriction()
     {
-        return PlayerPrefs.GetFloat(_keyFriction, 0f);
+        return PlayerPrefs.GetFloat(_keyFriction, 0.5f);
     }
 
     public static void SaveAngle(float angle)
@@ -58,7 +58,7 @@ public static class SaveLoadManager
 
     public static float LoadAngle()
     {
-        return PlayerPrefs.GetFloat(_keyAngle, 0f);
+        return PlayerPrefs.GetFloat(_keyAngle, -1f);
     }
 
     public static void SaveBounciness(float bounciness)
@@ -68,6 +68,6 @@ public static class SaveLoadManager
 
     public static float LoadBounciness()
     {
-        return PlayerPrefs.GetFloat(_keyBounciness, 0f);
+        return PlayerPrefs.GetFloat(_keyBounciness, 0.5f);
     }
 }
