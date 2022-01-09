@@ -11,6 +11,9 @@ public static class SaveLoadManager
     private static string _keyAngle = "KEY_ANGLE";
     private static string _keyBounciness = "KEY_BOUNCINESS";
 
+    private static string _keyThrows = "KEY_THROWS";
+    private static string _keyCoins = "KEY_COINS";
+
     public static void SaveMass(float mass)
     {
         PlayerPrefs.SetFloat(_keyMass, mass);
@@ -69,5 +72,25 @@ public static class SaveLoadManager
     public static float LoadBounciness()
     {
         return PlayerPrefs.GetFloat(_keyBounciness, 0.5f);
+    }
+
+    public static void SaveThrows(int throws)
+    {
+        PlayerPrefs.SetInt(_keyThrows, throws);
+    }
+
+    public static int LoadThrows()
+    {
+        return PlayerPrefs.GetInt(_keyThrows, 10);
+    }
+
+    public static void SaveCoins(int coins)
+    {
+        PlayerPrefs.SetInt(_keyCoins, coins);
+    }
+
+    public static int LoadCoins()
+    {
+        return PlayerPrefs.GetInt(_keyCoins, 100);
     }
 }
