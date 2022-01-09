@@ -72,7 +72,7 @@ public static class SaveLoadManager
 
     public static float LoadAngle()
     {
-        return PlayerPrefs.GetFloat(_keyAngle, -1f);
+        return PlayerPrefs.GetFloat(_keyAngle, 0f);
     }
 
     public static void SaveBounciness(float bounciness)

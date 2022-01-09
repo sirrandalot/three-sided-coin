@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class SimController : MonoBehaviour
 {
     public TextMeshProUGUI ParamsText;
+    public TextMeshProUGUI ResultsText;
     public Button BackButton;
 
     public GameObject CoinPrefab;
@@ -32,6 +33,11 @@ public class SimController : MonoBehaviour
 
     private Vector3 _startPosition = new Vector3(0, 2f, 0);
     private float _coinDiameter = 1f;
+    private float _waitTime = 10f;
+
+    private int _faceUp = 0;
+    private int _faceDown = 0;
+    private int _faceEdge = 0;
 
     private void Start()
     {
@@ -111,12 +117,41 @@ public class SimController : MonoBehaviour
         FloorPhysMat.staticFriction = _friction;
         FloorPhysMat.dynamicFriction = _friction;
 
-        ThrowCoins();
+        StartCoroutine(DoThrows());
     }
 
     private void OnBackButtonClicked()
     {
         SceneManager.LoadScene("MenuScene");
+    }
+
+    private IEnumerator DoThrows()
+    {
+        for(var i = 0; i < _throws; i++)
+        {
+            yield return DoSingleThrow();
+        }
+
+        ResultsText.text = string.Format(CultureInfo.InvariantCulture, "Results:\nUp: {0}\nDown: {1}\nEdge: {2}", _faceUp, _faceDown, _faceEdge);
+    }
+
+    private IEnumerator DoSingleThrow()
+    {
+        ThrowCoins();
+        yield return new WaitForSeconds(_waitTime);
+
+        for(var i = 0; i < _coinObjects.Length; i++)
+        {
+            var angleToUp = Vector3.Angle(_coinObjects[i].transform.up, Vector3.up);
+            var angleToDown = Vector3.Angle(_coinObjects[i].transform.up, Vector3.down);
+
+            if (angleToUp < 80)
+                _faceUp++;
+            else if (angleToDown < 80)
+                _faceDown++;
+            else
+                _faceEdge++;
+        }
     }
 
     private void ThrowCoins()
