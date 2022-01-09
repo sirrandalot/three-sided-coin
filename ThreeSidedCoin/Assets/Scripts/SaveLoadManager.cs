@@ -42,7 +42,7 @@ public static class SaveLoadManager
 
     public static float LoadILV()
     {
-        return PlayerPrefs.GetFloat(_keyIlv, 1f);
+        return PlayerPrefs.GetFloat(_keyIlv, 5f);
     }
 
     public static void SaveIAV(float iav)
