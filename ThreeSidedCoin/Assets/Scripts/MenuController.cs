@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
+    private TMP_InputField _inputFieldThickness;
     private TMP_InputField _inputFieldMass;
     private TMP_InputField _inputFieldIlv;
     private TMP_InputField _inputFieldIav;
@@ -22,6 +23,7 @@ public class MenuController : MonoBehaviour
         transform.Find("ExitButton").GetComponent<Button>().onClick.AddListener(OnExitClicked);
         transform.Find("RunButton").GetComponent<Button>().onClick.AddListener(OnRunClicked);
 
+        _inputFieldThickness = transform.Find("InputField_Thickness").GetComponent<TMP_InputField>();
         _inputFieldMass = transform.Find("InputField_Mass").GetComponent<TMP_InputField>();
         _inputFieldIlv = transform.Find("InputField_ILV").GetComponent<TMP_InputField>();
         _inputFieldIav = transform.Find("InputField_IAV").GetComponent<TMP_InputField>();
@@ -32,6 +34,7 @@ public class MenuController : MonoBehaviour
         _inputFieldThrows = transform.Find("InputField_Throws").GetComponent<TMP_InputField>();
         _inputFieldCoins = transform.Find("InputField_Coins").GetComponent<TMP_InputField>();
 
+        _inputFieldThickness.text = SaveLoadManager.LoadThickness().ToString();
         _inputFieldMass.text = SaveLoadManager.LoadMass().ToString();
         _inputFieldIlv.text = SaveLoadManager.LoadILV().ToString();
         _inputFieldIav.text = SaveLoadManager.LoadIAV().ToString();
@@ -50,6 +53,7 @@ public class MenuController : MonoBehaviour
 
     private void OnRunClicked()
     {
+        SaveLoadManager.SaveThickness(float.Parse(_inputFieldThickness.text));
         SaveLoadManager.SaveMass(float.Parse(_inputFieldMass.text));
         SaveLoadManager.SaveILV(float.Parse(_inputFieldIlv.text));
         SaveLoadManager.SaveIAV(float.Parse(_inputFieldIav.text));

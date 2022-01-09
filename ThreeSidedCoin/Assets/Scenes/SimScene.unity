@@ -719,6 +719,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ParamsText: {fileID: 421607046}
   BackButton: {fileID: 1166225110}
+  CoinPrefab: {fileID: 5095513285519058326, guid: 8a1d38f45a8f8aa4b9c4c9aa2d0f8d70, type: 3}
 --- !u!4 &453257739
 Transform:
   m_ObjectHideFlags: 0

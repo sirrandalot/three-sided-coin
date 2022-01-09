@@ -4,6 +4,7 @@ using UnityEngine;
 
 public static class SaveLoadManager
 {
+    private static string _keyThickness = "KEY_THICKNESS";
     private static string _keyMass = "KEY_MASS";
     private static string _keyIlv = "KEY_ILV";
     private static string _keyIav = "KEY_IAV";
@@ -13,6 +14,16 @@ public static class SaveLoadManager
 
     private static string _keyThrows = "KEY_THROWS";
     private static string _keyCoins = "KEY_COINS";
+
+    public static void SaveThickness(float thickness)
+    {
+        PlayerPrefs.SetFloat(_keyThickness, thickness);
+    }
+
+    public static float LoadThickness()
+    {
+        return PlayerPrefs.GetFloat(_keyThickness, 1f);
+    }
 
     public static void SaveMass(float mass)
     {

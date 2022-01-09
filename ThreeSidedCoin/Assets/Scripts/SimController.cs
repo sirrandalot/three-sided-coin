@@ -11,6 +11,9 @@ public class SimController : MonoBehaviour
     public TextMeshProUGUI ParamsText;
     public Button BackButton;
 
+    public GameObject CoinPrefab;
+
+    private float _thickness;
     private float _mass;
     private float _ilv;
     private float _iav;
@@ -21,9 +24,18 @@ public class SimController : MonoBehaviour
     private int _throws;
     private int _coins;
 
+    private GameObject[] _coinObjects;
+
     private void Start()
     {
         BackButton.onClick.AddListener(OnBackButtonClicked);
+
+        _thickness = SaveLoadManager.LoadThickness();
+
+        if (_thickness < 0.01f)
+            _thickness = 0.01f;
+        else if (_thickness > 2f)
+            _thickness = 2f;
 
         _mass = SaveLoadManager.LoadMass();
 
@@ -70,13 +82,21 @@ public class SimController : MonoBehaviour
             _coins = 1;
 
         ParamsText.text = string.Format(CultureInfo.InvariantCulture, 
-            "{0} throws with {1} coins each -> {2} total coin tosses\nMass: {3}\nInitial Linear Velocity: {4}\nInitial Angular Velocity: {5}\nFriction: {6}\nBounciness: {7}\nAngle: {8}",
-            _throws, _coins, _throws*_coins, _mass, _ilv, _iav, _friction, _bounciness,
+            "{0} throws with {1} coins each -> {2} total coin tosses\nThickness: {3}\nMass: {4}\nInitial Linear Velocity: {5}\nInitial Angular Velocity: {6}\nFriction: {7}\nBounciness: {8}\nAngle: {9}",
+            _throws, _coins, _throws*_coins, _thickness, _mass, _ilv, _iav, _friction, _bounciness,
             _angle == -1 ? "random" : _angle);
+
+        _coinObjects = new GameObject[_coins];
+
+        for (var i = 0; i < _coinObjects.Length; i++)
+        {
+
+        }
     }
 
     private void OnBackButtonClicked()
     {
         SceneManager.LoadScene("MenuScene");
     }
+
 }
